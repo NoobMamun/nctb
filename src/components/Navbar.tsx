@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { BookOpen, Calendar, HelpCircle, LayoutDashboard, Languages, Shield } from 'lucide-react';
+import MapBroadcaster from './MapBroadcaster';
 
 interface NavbarProps {
   activeTab: string;
@@ -33,6 +34,11 @@ export default function Navbar({ activeTab, setActiveTab, language, setLanguage 
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 relative">
+        {/* Animated Map Broadcaster on the left side (matching user's marked option) */}
+        <div className="md:absolute md:left-4 lg:left-8 md:top-1/2 md:-translate-y-1/2">
+          <MapBroadcaster language={language} />
+        </div>
+
         <div className="flex flex-col items-center justify-center gap-4">
           
           {/* Logo Brand Lockup */}
