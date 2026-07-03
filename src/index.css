@@ -1,0 +1,89 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=Noto+Sans+Bengali:wght@300;400;500;600;700&family=Noto+Serif+Bengali:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Design System Palette */
+  --color-green-900: #051E1F;
+  --color-green-800: #0A2923;
+  --color-green-700: #173430;
+  --color-green-600: #224E44;
+  --color-green-500: #4C7C68;
+  --color-green-400: #87AB93;
+  --color-green-300: #B7D2C2;
+  --color-green-200: #D2E7D6;
+  --color-green-100: #EDF4EE;
+
+  /* Neutrals */
+  --color-bg-canvas: #FBFAF5;
+  --color-bg-surface: #FFFFFF;
+  --color-bg-muted: #F3F1E9;
+  --color-ink-900: #151E1A;
+  --color-ink-700: #3E4A44;
+  --color-ink-500: #6E7A73;
+  --color-border-custom: #E1E4DC;
+
+  /* Accents */
+  --color-accent-gold: #B4863C;
+  --color-accent-gold-tint: #F3E8D3;
+
+  /* Semantic mappings */
+  --color-brand: #173430;
+  --color-brand-hover: #0A2923;
+  --color-success-custom: #2E6B4F;
+  --color-warning-custom: #8A5A17;
+  --color-error-custom: #9C3A2E;
+  --color-info-custom: #2C5C82;
+
+  /* Typography Pairing per Section 4 */
+  --font-display: "Source Serif 4", "Noto Serif Bengali", serif;
+  --font-sans: "Public Sans", "Noto Sans Bengali", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+body {
+  background-color: var(--color-bg-canvas);
+  color: var(--color-ink-900);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Specific styling for display elements */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Outline on focus for keyboard accessibility per Section 10 */
+*:focus-visible {
+  outline: 2px solid var(--color-green-700);
+  outline-offset: 2px;
+}
+
+/* Custom scrollbars matching the color system */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-muted);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-green-400);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-green-500);
+}

@@ -1,0 +1,6 @@
+{
+  "name": "NCTB Portal",
+  "description": "A redesigned, accessible portal for the National Curriculum and Textbook Board, Bangladesh. Streamlined textbook search, curriculum library, and integrated AI Study Assistant.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
