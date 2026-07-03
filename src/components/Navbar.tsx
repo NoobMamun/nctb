@@ -33,18 +33,19 @@ export default function Navbar({ activeTab, setActiveTab, language, setLanguage 
         <div className="w-2/3 h-full bg-green-700" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 relative">
-        {/* Animated Map Broadcaster on the left side (matching user's marked option) */}
-        <div className="md:absolute md:left-4 lg:left-8 md:top-1/2 md:-translate-y-1/2">
-          <MapBroadcaster language={language} />
-        </div>
-
-        <div className="flex flex-col items-center justify-center gap-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        {/* Top Header Branding Section with isolated relative context to prevent any vertical tab overlap */}
+        <div className="relative flex flex-col lg:flex-row items-center justify-center min-h-[90px] gap-4 mb-2">
           
-          {/* Logo Brand Lockup */}
-          <div className="flex items-center gap-3 select-none">
+          {/* Animated Map Broadcaster on the left side (only shown on lg and up to ensure perfect space distribution) */}
+          <div className="hidden lg:block lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2 z-10">
+            <MapBroadcaster language={language} />
+          </div>
+
+          {/* Logo Brand Lockup - centered, responsive */}
+          <div className="flex items-center gap-3 select-none z-0 text-center lg:text-left mx-auto">
             {/* NCTB Government Seal Graphic Placeholder (Clean SVG emblem) */}
-            <div className="w-12 h-12 rounded-full border-2 border-accent-gold flex items-center justify-center bg-white p-1 shadow-inner">
+            <div className="w-12 h-12 rounded-full border-2 border-accent-gold flex items-center justify-center bg-white p-1 shrink-0 shadow-inner">
               <svg viewBox="0 0 100 100" className="w-full h-full">
                 {/* Bangladesh Red Sun */}
                 <circle cx="50" cy="50" r="30" fill="#D62728" />
@@ -56,22 +57,22 @@ export default function Navbar({ activeTab, setActiveTab, language, setLanguage 
             </div>
 
             <div className="text-left">
-              <h1 className="font-display text-lg sm:text-xl md:text-2xl font-bold tracking-tight text-white flex items-center gap-2">
+              <h1 className="font-display text-base sm:text-lg md:text-xl lg:text-2xl font-bold tracking-tight text-white leading-tight">
                 {isBangla ? 'জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড (এনসিটিবি)' : 'National Curriculum & Textbook Board (NCTB)'}
               </h1>
-              <p className="text-xs text-green-200 font-sans tracking-wide">
+              <p className="text-[10px] sm:text-xs text-green-200 font-sans tracking-wide mt-0.5">
                 {isBangla ? 'শিক্ষা মন্ত্রণালয়, গণপ্রজাতন্ত্রী বাংলাদেশ সরকার' : 'Ministry of Education, People\'s Republic of Bangladesh'}
               </p>
             </div>
           </div>
 
           {/* Controls: Language and Quick Links */}
-          <div className="flex items-center gap-4 md:absolute md:right-4 lg:right-8 md:top-1/2 md:-translate-y-1/2">
+          <div className="flex items-center gap-4 lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 z-10">
             {/* Language Switch Toggle per Section 3.5 & 4 */}
             <button
               id="language-toggle"
               onClick={() => setLanguage(isBangla ? 'en' : 'bn')}
-              className="flex items-center gap-2 px-3.5 py-1.5 rounded-md border border-green-400 bg-green-800/60 hover:bg-green-700 hover:border-accent-gold text-sm font-medium transition-all text-white focus:outline-none"
+              className="flex items-center gap-2 px-3.5 py-1.5 rounded-md border border-green-400 bg-green-800/60 hover:bg-green-700 hover:border-accent-gold text-sm font-medium transition-all text-white focus:outline-none cursor-pointer"
               aria-label="Toggle language"
             >
               <Languages className="w-4 h-4 text-accent-gold" />
@@ -87,7 +88,7 @@ export default function Navbar({ activeTab, setActiveTab, language, setLanguage 
         </div>
 
         {/* Navigation Tabs bar per Section 8 & 9 */}
-        <nav className="mt-6 border-t border-green-800/80 pt-4" aria-label="Main Navigation">
+        <nav className="mt-4 border-t border-green-800/80 pt-4" aria-label="Main Navigation">
           <ul className="flex flex-wrap items-center gap-1.5 sm:gap-3" id="main-nav-tabs">
             {navItems.map((item) => {
               const Icon = item.icon;
