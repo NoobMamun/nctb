@@ -7,6 +7,7 @@ import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import NoticeTicker from './components/NoticeTicker';
 import TextbookList from './components/TextbookList';
 import CurriculumGuide from './components/CurriculumGuide';
 import NoticeBoard from './components/NoticeBoard';
@@ -95,6 +96,9 @@ export default function App() {
         language={language}
         setLanguage={setLanguage}
       />
+
+      {/* Live TV Headline-style Scrolling Notice Board Ticker */}
+      <NoticeTicker language={language} />
 
       {/* Main Container Workspace */}
       <main className="grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
