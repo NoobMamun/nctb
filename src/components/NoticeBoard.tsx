@@ -6,6 +6,7 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, Search, Download, FileText, Printer, CheckCircle } from 'lucide-react';
 import { Notice } from '../types';
+import { NOTICES } from '../data/textbooks';
 
 interface NoticeBoardProps {
   language: 'bn' | 'en';
@@ -13,8 +14,8 @@ interface NoticeBoardProps {
 
 export default function NoticeBoard({ language }: NoticeBoardProps) {
   const isBangla = language === 'bn';
-  const [notices, setNotices] = useState<Notice[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [notices, setNotices] = useState<Notice[]>(NOTICES);
+  const [isLoading, setIsLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
@@ -27,7 +28,7 @@ export default function NoticeBoard({ language }: NoticeBoardProps) {
           setNotices(data.notices);
         }
       } catch (err) {
-        console.error('Error fetching notices:', err);
+        console.warn('API fetch notices failed, falling back to static NOTICES data:', err);
       } finally {
         setIsLoading(false);
       }

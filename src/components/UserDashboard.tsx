@@ -7,6 +7,7 @@ import React, { useState, useEffect } from 'react';
 import { Bookmark, ClipboardList, PenTool, BookOpen, Trash2, Calendar, FileText, CheckCircle } from 'lucide-react';
 import { Textbook } from '../types';
 import BookCover from './BookCover';
+import { TEXTBOOKS } from '../data/textbooks';
 
 interface UserDashboardProps {
   language: 'bn' | 'en';
@@ -22,7 +23,7 @@ export default function UserDashboard({
   onBookmarkToggle
 }: UserDashboardProps) {
   const isBangla = language === 'bn';
-  const [textbooks, setTextbooks] = useState<Textbook[]>([]);
+  const [textbooks, setTextbooks] = useState<Textbook[]>(TEXTBOOKS);
   const [notepadText, setNotepadText] = useState(() => {
     return localStorage.getItem('nctb_study_notes') || '';
   });
@@ -37,7 +38,7 @@ export default function UserDashboard({
           setTextbooks(data.textbooks);
         }
       } catch (err) {
-        console.error('Error loading books:', err);
+        console.warn('API fetch textbooks failed in Dashboard, falling back to static TEXTBOOKS data:', err);
       }
     }
     loadBooks();

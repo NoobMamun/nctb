@@ -95,8 +95,8 @@ export default function AiCompanion({ language }: AiCompanionProps) {
           id: `error-${Date.now()}`,
           sender: 'assistant',
           text: isBangla 
-            ? 'দুঃখিত, এই মুহূর্তে সার্ভারে সংযোগ স্থাপন করা সম্ভব হচ্ছে না। দয়া করে একটু পর আবার চেষ্টা করুন।' 
-            : 'Sorry, I am facing connectivity issues at the moment. Please try again shortly.',
+            ? 'দুঃখিত, এআই সহকারী সার্ভারে সংযোগ স্থাপন করা সম্ভব হচ্ছে না। আপনি যদি এটি স্ট্যাটিক হোস্টিংয়ে (যেমন: Vercel) রান করে থাকেন, তবে ব্যাকএন্ড এপিআই সক্রিয় না থাকায় চ্যাট সাময়িকভাবে নিষ্ক্রিয় থাকতে পারে। তবে আপনার পাঠ্যপুস্তক লাইব্রেরি, বুকমার্ক, নোটিশ বোর্ড এবং নোটপ্যাড কোনো বাধা ছাড়াই সম্পূর্ণ সচল রয়েছে!' 
+            : 'Sorry, the AI Assistant server connection failed. If you are running this app on a static hosting platform (like Vercel), the server-side Gemini API is inactive. However, your textbook library, curriculum guides, bookmarks, and notepad remain 100% functional offline!',
           timestamp: new Date().toLocaleTimeString()
         };
         setMessages((prev) => [...prev, errorMessage]);
@@ -107,8 +107,8 @@ export default function AiCompanion({ language }: AiCompanionProps) {
         id: `error-${Date.now()}`,
         sender: 'assistant',
         text: isBangla 
-          ? 'নেটওয়ার্ক ত্রুটির কারণে অনুরোধটি ব্যর্থ হয়েছে।' 
-          : 'Network error. Failed to dispatch message request.',
+          ? 'দুঃখিত, এআই সহকারী সার্ভারে সংযোগ স্থাপন করা সম্ভব হচ্ছে না। আপনি যদি এটি স্ট্যাটিক হোস্টিংয়ে (যেমন: Vercel) রান করে থাকেন, তবে ব্যাকএন্ড এপিআই সক্রিয় না থাকায় চ্যাট সাময়িকভাবে নিষ্ক্রিয় থাকতে পারে। তবে আপনার পাঠ্যপুস্তক লাইব্রেরি, বুকমার্ক, নোটিশ বোর্ড এবং নোটপ্যাড কোনো বাধা ছাড়াই সম্পূর্ণ সচল রয়েছে!' 
+          : 'Sorry, the AI Assistant server connection failed. If you are running this app on a static hosting platform (like Vercel), the server-side Gemini API is inactive. However, your textbook library, curriculum guides, bookmarks, and notepad remain 100% functional offline!',
         timestamp: new Date().toLocaleTimeString()
       };
       setMessages((prev) => [...prev, errorMessage]);

@@ -7,6 +7,7 @@ import React, { useState, useEffect } from 'react';
 import { Search, Filter, BookOpen, Download, Bookmark, Layers, RefreshCw } from 'lucide-react';
 import { Textbook } from '../types';
 import BookCover from './BookCover';
+import { TEXTBOOKS } from '../data/textbooks';
 
 interface TextbookListProps {
   language: 'bn' | 'en';
@@ -22,8 +23,8 @@ export default function TextbookList({
   onBookmarkToggle
 }: TextbookListProps) {
   const isBangla = language === 'bn';
-  const [textbooks, setTextbooks] = useState<Textbook[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [textbooks, setTextbooks] = useState<Textbook[]>(TEXTBOOKS);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Search & Filters states
   const [searchQuery, setSearchQuery] = useState('');
@@ -40,7 +41,7 @@ export default function TextbookList({
           setTextbooks(data.textbooks);
         }
       } catch (err) {
-        console.error('Error fetching textbooks:', err);
+        console.warn('API fetch textbooks failed, falling back to static TEXTBOOKS data:', err);
       } finally {
         setIsLoading(false);
       }
